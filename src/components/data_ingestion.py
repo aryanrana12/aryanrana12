@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation
 
 
-## Intitialize the Data Ingetion Configuration
+#Intitialize the Data Ingetion Configuration
 
 @dataclass
 class DataIngestionconfig:
@@ -25,7 +25,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info('Data Ingestion methods Starts')
         try:
-            df=pd.read_csv(os.path.join('notebooks/data','diamonds.csv'))
+            df=pd.read_csv(os.path.join("notebooks","diamonds.csv"))
             logging.info('Dataset read as pandas Dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
@@ -50,5 +50,5 @@ class DataIngestion:
 
 if __name__=='__main__':
     obj=DataIngestion()
-    train_data,test_data=obj.DataIngestion()
+    train_data_path,test_data_path=obj.initiate_data_ingestion()
 
